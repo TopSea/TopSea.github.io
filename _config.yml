@@ -1,2 +1,4 @@
 theme: jekyll-theme-architect
 title: TopSea
+favicon:
+    small: GitHub-Mark-32px.png
