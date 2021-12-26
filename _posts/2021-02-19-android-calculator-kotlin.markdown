@@ -3,7 +3,8 @@ layout: post
 title: Android 计算器 [Kotlin实现]
 date: 2021-1-10
 description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
-video: player.html?aid=844260870&bvid=BV1h54y1Y7Ku&cid=299650993&page=1
+video: player.html?aid=844260870&bvid=BV1h54y1Y7Ku&cid=299650993&page=1 # 哔哩哔哩视频
+small-img: android-calculator.webp # 主页的博客封面
 tags: [Js, Conference] # add tag
 ---    
 
