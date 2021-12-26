@@ -4,7 +4,7 @@ title: Android 2048小游戏
 date: 2021-1-10
 description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
 img: js-1.png # Add image post (optional)
-tags: [Js, Conference] # add tag
+tags: [Android, 游戏, Java] # add tag
 ---     
 
 
