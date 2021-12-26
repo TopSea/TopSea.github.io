@@ -6,6 +6,7 @@ layout: main
     {% if page.img %}
     <div class="page-cover-image">
       <figure>
+        <iframe src={{ "//player.bilibili.com/" | append : page.video }} scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
         <img class="page-image" src={{ "/assets/img/" | append : page.img}} alt="{{page.title}}">
         {% if page.fig-caption %}
           <figcaption>{{page.fig-caption}}</figcaption>
@@ -14,12 +15,25 @@ layout: main
     </div> <!-- End Page Cover Image -->
     {% else %}
     {% endif %}
+
+    {% if page.video %}
+    <div class="page-cover-video">
+      <figure>
+        <iframe class="page-video" src={{ "//player.bilibili.com/" | append : page.video }} scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+        {% if page.fig-caption %}
+          <figcaption>{{page.fig-caption}}</figcaption>
+        {% endif %}
+      </figure>
+    </div> <!-- End Page Cover Video -->
+    {% else %}
+    {% endif %}
     <div class="wrap-content">
       <header class="header-page">
         <h1 class="page-title">{{page.title}}</h1>
         <div class="page-date"><span>{{page.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
       </header>
       {{content | markdownify}}
+
       <div class="page-footer">
         <div class="page-share">
           <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>

@@ -9,17 +9,11 @@ site-twitter: #if your site has a twitter account, enter it here
 # Author Settings
 author: TopSea # add your name
 author-img: head-img.jpg # add your photo
-about-author: 那就坚持一周打三天渔吧。 # add description
-social-twitter: # add your Twitter handle
+about-author: 如果你也对编程感兴趣，收藏吧！不会让你失望的。那就坚持一周打三天渔吧。 # add description
 social-bilibili: # add your bilibili handle
-social-facebook: # add your Facebook handle
 social-github: TopSea # add your Github handle
 social-linkedin: # add your Linkedin handle
 social-email: cgbdyw@gmail.com # add your Email address
-
-
-# Disqus
-discus-identifier: mr-brown # add your discus identifier
 
 # Tracker
 analytics: # Google Analytics
