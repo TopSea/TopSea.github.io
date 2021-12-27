@@ -1199,6 +1199,11 @@ a.newer-posts:hover {
 }
 
 /* - - - - - - - - - - Post Page Styles - - - - - - - - - - */
+.page-content {
+    width: 80%;
+    margin: 0 auto;
+}
+
 .wrap-content {
     padding: 20px;
 }

@@ -18,7 +18,7 @@ layout: main
     {% if page.video %}
     <div class="page-cover-video">
       <figure>
-        <iframe class="page-video" src={{ "//player.bilibili.com/" | append : page.video }} scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+        <iframe id="videoB" class="page-video" src={{ "//player.bilibili.com/" | append : page.video }} scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
         {% if page.fig-caption %}
           <figcaption>{{page.fig-caption}}</figcaption>
         {% endif %}
