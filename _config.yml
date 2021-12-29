@@ -16,7 +16,7 @@ social-linkedin: # add your Linkedin handle
 social-email: cgbdyw@gmail.com # add your Email address
 
 # Tracker
-analytics: G-LR54Q8DFP2 # Google Analytics
+google_analytics: G-LR54Q8DFP2 # Google Analytics
 
 # Build Settings
 markdown: kramdown
