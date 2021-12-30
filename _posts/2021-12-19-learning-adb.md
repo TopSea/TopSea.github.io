@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Android 2048小游戏
-date: 2021-1-10
+title: Android adb 命令
+date: 2021-12-19
 description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
 img: adb.jpg # Add image post (optional)
 tags: [Android, 游戏, Java] # add tag
@@ -210,6 +210,6 @@ _adb_cmd_shell_pm() {
     return 0
 }
 ~~~    
-`candidates`即是可接受的命令。
+`candidates` 即是可接受的命令。
 
 

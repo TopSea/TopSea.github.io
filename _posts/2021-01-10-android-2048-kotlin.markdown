@@ -3,7 +3,8 @@ layout: post
 title: Android 2048小游戏
 date: 2021-1-10
 description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
-img: js-1.png # Add image post (optional)
+small-img: game-2048.webp # Add image post (optional)
+video: player.html?aid=246089281&bvid=BV1dv411x7MC&cid=280460762&page=1
 tags: [Android, 游戏, Java] # add tag
 ---
 最近迷上了玩小游戏，贪吃蛇、俄罗斯方块、数字华容道还有2048。不过小程序里面各种广告，下的软件也遍地是广告而且安装包还贼大甚至还要我权限，鬼知道是个什么东西。那就自己整一个吧，先写个我觉得最简单的2048。

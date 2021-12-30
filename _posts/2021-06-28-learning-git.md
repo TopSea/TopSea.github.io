@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Android 2048小游戏
-date: 2021-1-10
+title: Git 常用命令
+date: 2021-6-28
 description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
 img: git.jpg # Add image post (optional)
 tags: [Android, 游戏, Java] # add tag
