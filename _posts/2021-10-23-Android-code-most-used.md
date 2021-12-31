@@ -4,7 +4,7 @@ title: Android 常用代码
 date: 2021-10-23
 description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
 img: android-code.png # Add image post (optional)
-tags: [Android, 游戏, Java] # add tag
+tags: [Android] # add tag
 ---
 Android 常用代码
 ---

@@ -4,7 +4,7 @@ title: Git 常用命令
 date: 2021-6-28
 description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
 img: git.jpg # Add image post (optional)
-tags: [Android, 游戏, Java] # add tag
+tags: [Git] # add tag
 ---
 #Git 常用命令
 虽然现在大部分git操作都图形化了，但是有些git命令没有实现，而且大部分都是救急的。   
