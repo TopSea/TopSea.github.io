@@ -890,10 +890,11 @@ table tfoot td {
 .wrapper {
     max-width: 100%;
     position: relative;
+    background-color: #dfecd5;
 }
 
 .post, .article-page {
-    background-color: #fff;
+    background-color: #f0f5e5;
 }
 
 ::-moz-selection {
@@ -937,7 +938,7 @@ table tfoot td {
     width: 240px;
     height: 100%;
     padding: 20px 10px;
-    background-color: #ffffff;
+    background-color: #f0f5e5;
 }
 
 .about {
