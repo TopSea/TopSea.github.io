@@ -3,7 +3,7 @@ layout: post
 title: Android Compose简单图片验证
 date: 2022-03-24
 description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
-small-img: game-2048.webp # Add image post (optional)
+img: image-verify.png # Add image post (optional)
 tags: [Android, Compose, Jetpack] # add tag
 ---
 最近在学Jetpack Compose，简单整个图片验证试试手。基本逻辑就是用户滑动小球，图片跟着缩放，
