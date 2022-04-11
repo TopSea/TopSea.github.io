@@ -19,3 +19,23 @@ Android 常用代码
 创建单例Room数据库：
 ~~~kotlin
 ~~~   
+
+判断系统的声音设置：
+```
+AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+final int ringerMode = audioManager.getRingerMode();
+switch (ringerMode) {
+    case AudioManager.RINGER_MODE_NORMAL:
+        System.out.println("gaohai:::normal");
+        //没有振动只有响铃
+        break;
+    case AudioManager.RINGER_MODE_VIBRATE:
+        System.out.println("gaohai:::vibrate");
+        //静音且振动
+        break;
+    case AudioManager.RINGER_MODE_SILENT:
+        System.out.println("gaohai:::silent");
+        //静音且不振动
+        break;
+}
+```
