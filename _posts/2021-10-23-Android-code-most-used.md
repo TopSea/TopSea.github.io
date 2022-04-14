@@ -43,60 +43,40 @@ switch (ringerMode) {
 Compose 的 Canvas 画曲线
 ```kotlin
 @Composable
-fun CanvasCurve(
+fun CanvasCurve1(
     values: List<Float>
 ) {
-    val smooth = 0.2f
-    var distance by remember { mutableStateOf(0f) }
+    var stop by remember { mutableStateOf(0f) }
 
-    val srcPath by remember { mutableStateOf( Path() ) }
-    val dstPath by remember { mutableStateOf( Path() ) }
-    val mPathMeasure = PathMeasure()
-
-    val listDot = mutableListOf<Offset>()
-
-    var prePreviousPointX = Float.NaN
-    var prePreviousPointY = Float.NaN
-    var previousPointX = Float.NaN
-    var previousPointY = Float.NaN
-    var currentPointX = Float.NaN
-    var currentPointY = Float.NaN
-    var nextPointX: Float
-    var nextPointY: Float
-    
-    val gridSize = 100f
-
-    var down by remember { mutableStateOf(false) }
-
+    val animate by animateFloatAsState(
+        targetValue = stop,
+        animationSpec = tween(durationMillis = 3000, easing = FastOutSlowInEasing)
+    )
     Canvas(
         modifier = Modifier.fillMaxSize(),
     ) {
         val yEnd = size.height - ChartConfig.verPadding
-        values.forEachIndexed { index, value ->
-            listDot.add(
-                Offset(
-                    index * gridSize + 80f,
-                    yEnd - value * gridSize
-                )
+        val smooth = 0.2f
+
+        val srcPath = Path()
+        val dstPath = Path()
+
+        var prePreviousPointX = Float.NaN
+        var prePreviousPointY = Float.NaN
+        var previousPointX = Float.NaN
+        var previousPointY = Float.NaN
+        var currentPointX = Float.NaN
+        var currentPointY = Float.NaN
+        var nextPointX: Float
+        var nextPointY: Float
+
+        val listDot = List(values.size){ index ->
+            Offset(
+                index * ChartConfig.gridSize.value + ChartConfig.horPadding,
+                yEnd - values[index] * ChartConfig.gridSize.value
             )
         }
 
-        if (down) {
-            if (mPathMeasure.getSegment(0f, distance, dstPath, true)) {
-                //绘制线
-                drawPath(
-                    path = dstPath,
-                    color = Color.Red,
-                    style = Stroke(width = 5f)
-                )
-            }
-        }
-    }
-
-    LaunchedEffect(key1 = (listDot.size == values.size) || !down) {
-        down = true
-
-//        delay(10)
         listDot.forEachIndexed { index, offset ->
             if (currentPointX.isNaN()) {
                 currentPointX = offset.x
@@ -158,11 +138,11 @@ fun CanvasCurve(
                 val ctl2X: Float = currentPointX - smooth * secondDiffX
                 val ctl2Y: Float = currentPointY - smooth * secondDiffY
 
-                //画出曲线
                 srcPath.cubicTo(
                     ctl1X, ctl1Y, ctl2X, ctl2Y,
                     currentPointX, currentPointY
                 )
+
             }
 
             // 更新值,
@@ -173,15 +153,18 @@ fun CanvasCurve(
             currentPointX = nextPointX
             currentPointY = nextPointY
         }
-        mPathMeasure.setPath(srcPath, false)
 
-        while (distance < 10000f) {
-            if (distance > 8000) {
-                delay(50)
-            } else {
-                delay(20)
-            }
-            distance += 10f
+        val mPathMeasure = PathMeasure()
+        mPathMeasure.setPath(srcPath, false)
+        stop = mPathMeasure.length
+
+        if (mPathMeasure.getSegment(0f, animate, dstPath, true)) {
+            //绘制线
+            drawPath(
+                path = dstPath,
+                color = Color.Red,
+                style = Stroke(width = 5f)
+            )
         }
     }
 }
