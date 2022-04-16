@@ -169,3 +169,12 @@ fun CanvasCurve1(
     }
 }
 ```
+
+Compose 中 `dp` 和 `px` 互相转换     
+```kotlin
+import androidx.compose.ui.platform.LocalDensity        //手动导包
+
+val pxValue = with(LocalDensity.current) { 16.dp.toPx() }
+// or
+val pxValue = LocalDensity.current.run { 16.dp.toPx() }
+```
