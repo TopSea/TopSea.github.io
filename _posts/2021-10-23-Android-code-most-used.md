@@ -178,3 +178,36 @@ val pxValue = with(LocalDensity.current) { 16.dp.toPx() }
 // or
 val pxValue = LocalDensity.current.run { 16.dp.toPx() }
 ```
+
+Compose 中处理滑动手势：
+```kotlin
+var offsetX by remember { mutableStateOf(0F) }
+var offsetY by remember { mutableStateOf(0F) }
+
+    Modifier.pointerInput(Unit) {
+        detectDragGestures(
+            onDragEnd = {
+                val x = abs(offsetX)
+                val y = abs(offsetY)
+                if (x > y) {
+                    if (offsetX < 0) {
+                        Log.d("", "GaoHai:::detectDragGestures left")
+                    } else {
+                        Log.d("", "GaoHai:::detectDragGestures right")
+                    }
+                } else {
+                    if (offsetY < 0) {
+                        Log.d("", "GaoHai:::detectDragGestures top")
+                    } else {
+                        Log.d("", "GaoHai:::detectDragGestures bottom")
+                    }
+                }
+                offsetX = 0f
+                offsetY = 0f
+            }
+        ) { _, dragAmount ->
+            offsetX += dragAmount.x
+            offsetY += dragAmount.y
+        }
+    }
+```
