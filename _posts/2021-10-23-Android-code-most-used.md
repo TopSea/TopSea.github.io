@@ -18,6 +18,56 @@ Android 常用代码
 
 创建单例Room数据库：
 ~~~kotlin
+~~~    
+
+打开应用或跳转应用市场、浏览器下载应用的功能：
+~~~shell
+#部分手机需要获取权限后才能获得全部的应用包
+<uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+
+public static void downloadOrOpenApp(Context context, String pkgName, boolean isOnAppStore, String uri) {
+    try {
+        if (!checkAppInstalled(context, pkgName)){
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            if (isOnAppStore) {
+                intent.setData(Uri.parse("market://details?id=" + pkgName));
+            } else {
+                intent.setAction("android.intent.action.VIEW");//Intent.ACTION_VIEW
+                Uri contentUrl = Uri.parse(uri);
+                intent.setData(contentUrl);
+            }
+            context.startActivity(intent);
+        } else {
+            final Intent intent = context.getPackageManager().getLaunchIntentForPackage(pkgName);
+            if (intent != null) {
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+                context.startActivity(intent);
+            }
+        }
+    } catch (Exception e) {
+//            Toast.makeText(context, "您的手机上没有安装Android应用市场", Toast.LENGTH_SHORT).show();
+        e.printStackTrace();
+    }
+}
+
+private static boolean checkAppInstalled(Context context, String pkgName) {
+    if (pkgName == null || pkgName.isEmpty()) {
+        return false;
+    }
+    final PackageManager packageManager = context.getPackageManager();
+    List<PackageInfo> info = packageManager.getInstalledPackages(0);
+    if(info.isEmpty())
+        return false;
+    for ( int i = 0; i < info.size(); i++ ) {
+        System.out.println("TopSea:::" + info.get(i).packageName);
+        if(pkgName.equals(info.get(i).packageName)) {
+            return true;
+        }
+    }
+    return false;
+}
 ~~~   
 
 判断系统的声音设置：
