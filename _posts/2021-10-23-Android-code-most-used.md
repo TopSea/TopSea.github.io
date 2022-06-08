@@ -90,6 +90,28 @@ switch (ringerMode) {
 }
 ```
 
+根据系统的字体大小设置应用的字体大小：
+```
+public static void setAsSystemFontSize(float systemFontSize, SharedPreferences preferences) {
+    if (systemFontSize == 0.85f) {
+        preferences.edit().putInt("fontsize", 0).apply();
+    } else if (systemFontSize == 1.0f) {
+        preferences.edit().putInt("fontsize", 1).apply();
+    } else if (systemFontSize == 1.15f) {
+        preferences.edit().putInt("fontsize", 2).apply();
+    } else if (systemFontSize == 1.30f) {
+        preferences.edit().putInt("fontsize", 3).apply();
+    } else {    //1.45
+
+    }
+}
+
+public float getSystemFontSize(Context context) {
+    Configuration configuration = context.getResources().getConfiguration();
+    return configuration.fontScale;
+}
+```
+
 Compose 的 Canvas 画曲线
 ```kotlin
 @Composable
