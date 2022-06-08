@@ -261,3 +261,15 @@ var offsetY by remember { mutableStateOf(0F) }
         }
     }
 ```
+
+Compose中自定义Modifier项：   
+```kotlin
+private fun Modifier.setChartScrollable(chartConfig: ChartConfig,
+                                        scrollState: ScrollState?) = this.then(
+    if (chartConfig.scalable) {
+        horizontalScroll(scrollState!!)
+    } else {
+        Modifier
+    }
+)
+```
